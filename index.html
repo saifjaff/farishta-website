@@ -3,17 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Remember Allah together. Create a room, share the code, and count dhikr with your family on every phone.">
 <meta name="theme-color" content="#1a4a42">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://farishta.si">
-<meta property="og:title" content="Farishta">
+<meta property="og:url" content="https://farishta.si/">
+<meta property="og:title" content="Farishta – Family Dhikr App">
 <meta property="og:description" content="Remember Allah together. Count dhikr with your family, live on every phone.">
-<meta property="og:image" content="/assets/og.png">
+<meta property="og:image" content="https://farishta.si/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<title>Farishta</title>
+<title>Farishta – Family Dhikr App: Count Dhikr Together, Live</title>
+<meta name="description" content="Farishta is a family dhikr app. Create a room, share a code, and count dhikr together with family anywhere in the world, live on every phone. No download or account needed.">
+<link rel="canonical" href="https://farishta.si/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="keywords" content="Farishta, Farishta app, family dhikr, family dhikr app, dhikr counter, tasbih counter, online tasbeeh, Islamic app, Muslim family app, zikr counter">
+<meta property="og:site_name" content="Farishta">
+<meta property="og:locale" content="en_US">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap">
 <style>
@@ -218,21 +223,152 @@ footer{border-top:1px solid var(--line);padding-block:24px;font-size:.85rem;colo
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 body,html{margin:0}
+.faq{max-width:780px;margin:0 auto;display:grid;gap:10px}
+.faq details{border-radius:18px;background:var(--card);border:1px solid var(--line);padding:4px 20px}
+.faq summary{cursor:pointer;font-family:var(--display);font-weight:600;font-size:1.08rem;padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::after{content:"+";color:var(--gold);font-family:var(--body);font-weight:300;font-size:1.4rem;line-height:1}
+.faq details[open] summary::after{content:"−"}
+.faq p{margin:0 0 16px;color:var(--muted)}
 </style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://farishta.si/#org",
+   "name": "Farishta",
+   "url": "https://farishta.si/",
+   "logo": "https://farishta.si/assets/icon-512.png"
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://farishta.si/#site",
+   "name": "Farishta",
+   "alternateName": [
+    "Farishta App",
+    "Family Dhikr"
+   ],
+   "url": "https://farishta.si/",
+   "publisher": {
+    "@id": "https://farishta.si/#org"
+   }
+  },
+  {
+   "@type": "WebApplication",
+   "name": "Farishta – Family Dhikr",
+   "alternateName": [
+    "Family Dhikr",
+    "Farishta App"
+   ],
+   "url": "https://dhikr.farishta.si/",
+   "applicationCategory": "LifestyleApplication",
+   "applicationSubCategory": "Religion & Spirituality",
+   "operatingSystem": "Any (web browser)",
+   "browserRequirements": "Requires a modern web browser",
+   "description": "A shared dhikr counter for families. Create a room, share the code, and count dhikr together toward one goal, live on every phone.",
+   "featureList": [
+    "Live shared dhikr count across every phone",
+    "Group and personal counts",
+    "Count goals with progress",
+    "Rooms keep their count",
+    "Undo a tap",
+    "No account or download",
+    "Built-in dhikr with Arabic, transliteration and meaning",
+    "Custom dhikr"
+   ],
+   "inLanguage": "en",
+   "publisher": {
+    "@id": "https://farishta.si/#org"
+   },
+   "image": "https://farishta.si/assets/og.png"
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is Farishta?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Farishta is a family dhikr app. You create a room, share a short code, and everyone in the family taps + on their own phone. Every tap adds to one shared count that updates live on every phone until you reach your goal."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I count dhikr together with my family?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Open dhikr.farishta.si, enter your name, name the room, choose a dhikr and set a goal. Send the room code to your family group chat. Each person joins with their name and the code, and every tap counts toward the same total."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I need to download an app or create an account?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Farishta runs in the browser on any phone, tablet or computer. There is no download and no account, just a name and a room code."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Which dhikr can we count?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Farishta includes Subhan Allah, Alhamdulillah, Allahu Akbar, La ilaha illallah, Astaghfirullah, Subhanallahi wa bihamdihi, Subhanallahil Azeem, La hawla wa la quwwata illa billah, salawat on the Prophet ﷺ, Hasbunallahu wa ni'mal wakeel and Ya Salamu, each with Arabic, transliteration and meaning. You can also add your own dhikr or du'a."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can family members in different cities or countries count together?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. The count syncs live, so family anywhere in the world see the same number the moment anyone taps."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I see my own count as well as the family total?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Switch between Group and Personal to see the family total or your own taps. The room also lists how much each person has counted."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What happens if we stop and come back later?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Rooms keep their count. Leave and come back days later, and the room and its total are still there."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I undo a mistaken tap?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. The − button takes back a tap so the count stays accurate."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
 </head>
 <body>
 
 <nav><div class="wrap">
   <a class="brand" href="#top"><img src="/assets/logo.webp" alt="">Farishta</a>
-  <div class="links"><a href="#how">How it works</a><a href="#features">Features</a><a href="#dhikr">Dhikr</a></div>
+  <div class="links"><a href="#how">How it works</a><a href="#features">Features</a><a href="#dhikr">Dhikr</a><a href="#faq">FAQ</a></div>
   <a class="btn" href="https://dhikr.farishta.si">Start a room</a>
 </div></nav>
 
 <header class="hero" id="top"><div class="wrap">
   <div>
-    <p class="eyebrow">Shared dhikr for families</p>
+    <p class="eyebrow">Farishta · the family dhikr app</p>
     <h1>Remember Allah, <em>together.</em></h1>
-    <p class="lede">Create a room, share the code, and tap +. Every tap from every phone adds to one family count.</p>
+    <p class="lede">Farishta is a shared dhikr counter for families. Create a room, share the code, and tap +. Every tap from every phone, anywhere in the world, adds to one family count.</p>
     <div class="cta"><a class="btn" href="https://dhikr.farishta.si">Start a room</a><a class="btn ghost" href="#how">See how it works</a></div>
     <div class="trust"><span>No accounts</span><span>Nothing to download</span><span>Works on any phone</span></div>
   </div>
@@ -368,6 +504,20 @@ body,html{margin:0}
   <div class="mq"><div class="marquee" id="mq1"></div><div class="marquee rev" id="mq2"></div></div>
 </section>
 
+<section class="block" id="faq"><div class="wrap">
+  <div class="head c"><p class="eyebrow">Questions</p><h2>About the Farishta family dhikr app</h2></div>
+  <div class="faq">
+    <details><summary>What is Farishta?</summary><p>Farishta is a family dhikr app. You create a room, share a short code, and everyone in the family taps + on their own phone. Every tap adds to one shared count that updates live on every phone until you reach your goal.</p></details>
+    <details><summary>How do I count dhikr together with my family?</summary><p>Open dhikr.farishta.si, enter your name, name the room, choose a dhikr and set a goal. Send the room code to your family group chat. Each person joins with their name and the code, and every tap counts toward the same total.</p></details>
+    <details><summary>Do I need to download an app or create an account?</summary><p>No. Farishta runs in the browser on any phone, tablet or computer. There is no download and no account, just a name and a room code.</p></details>
+    <details><summary>Which dhikr can we count?</summary><p>Farishta includes Subhan Allah, Alhamdulillah, Allahu Akbar, La ilaha illallah, Astaghfirullah, Subhanallahi wa bihamdihi, Subhanallahil Azeem, La hawla wa la quwwata illa billah, salawat on the Prophet ﷺ, Hasbunallahu wa ni'mal wakeel and Ya Salamu, each with Arabic, transliteration and meaning. You can also add your own dhikr or du'a.</p></details>
+    <details><summary>Can family members in different cities or countries count together?</summary><p>Yes. The count syncs live, so family anywhere in the world see the same number the moment anyone taps.</p></details>
+    <details><summary>Can I see my own count as well as the family total?</summary><p>Yes. Switch between Group and Personal to see the family total or your own taps. The room also lists how much each person has counted.</p></details>
+    <details><summary>What happens if we stop and come back later?</summary><p>Rooms keep their count. Leave and come back days later, and the room and its total are still there.</p></details>
+    <details><summary>Can I undo a mistaken tap?</summary><p>Yes. The − button takes back a tap so the count stays accurate.</p></details>
+  </div>
+</div></section>
+
 <section class="closing"><div class="wrap">
   <img src="/assets/logo.webp" alt="">
   <h2>Gather the family. Count together.</h2>
@@ -375,7 +525,7 @@ body,html{margin:0}
   <a class="btn" href="https://dhikr.farishta.si">Start a room</a>
 </div></section>
 
-<footer><div class="wrap"><span>Farishta · farishta.si</span><span>Remember Allah together.</span></div></footer>
+<footer><div class="wrap"><span>Farishta · the family dhikr app · farishta.si</span><span><a href="https://dhikr.farishta.si" style="color:inherit">Open the app</a> · Remember Allah together.</span></div></footer>
 
 <script>
 (()=>{

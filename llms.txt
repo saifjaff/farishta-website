@@ -1,0 +1,20 @@
+# Farishta
+
+> Farishta is a family dhikr app: a shared dhikr (tasbih) counter that lets a family count dhikr together, live, from every phone.
+
+- Website: https://farishta.si/
+- App: https://dhikr.farishta.si/
+
+## How it works
+1. Create a room: enter your name, name the room and set a goal (default 12,000).
+2. Choose a dhikr from the built-in list, or add a custom one. Each shows Arabic, transliteration and meaning.
+3. Share the room code. Family join with their name and the code.
+4. Everyone taps +. Every tap adds to one shared count that syncs live on every phone.
+
+## Features
+- Live shared count across phones, anywhere in the world
+- Group and personal counts, with a per-person list
+- Goals with progress
+- Rooms keep their count when you leave and return
+- Undo a tap with the − button
+- Runs in the browser; no download or account
