@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Remember Allah together. Create a room, share the code, and count dhikr with your family on every phone.">
+<meta name="theme-color" content="#1a4a42">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://farishta.si">
+<meta property="og:title" content="Farishta">
+<meta property="og:description" content="Remember Allah together. Count dhikr with your family, live on every phone.">
+<meta property="og:image" content="/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<title>Farishta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap">
+<style>
+/* Layout: launch-style hero (real phone + floating live events), walkthrough, animated feature vignettes, dhikr spotlight + marquee, closing. */
+:root{
+  --bg:#f3f8f5; --bg2:#e6f1ec; --ink:#102924; --muted:#4d6b64; --line:rgba(16,41,36,.1); --card:rgba(255,255,255,.72);
+  --accent:#2f8f78; --gold:#b8923e; --glow:#f6e3a6; --mint:#9fd3c5; --stagebg:#e3efe9;
+  --display:"Fraunces",Georgia,serif; --body:"Outfit",system-ui,sans-serif; --arabic:"Amiri","Geeza Pro",serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b2420;--bg2:#0f2d28;--ink:#e7f1ee;--muted:#9dbdb4;--line:rgba(231,241,238,.1);--card:rgba(231,241,238,.05);--accent:#4fb699;--gold:#d4b064;--glow:#4a3e1a;--mint:#1f5a50;--stagebg:#12352f;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b2420;--bg2:#0f2d28;--ink:#e7f1ee;--muted:#9dbdb4;--line:rgba(231,241,238,.1);--card:rgba(231,241,238,.05);--accent:#4fb699;--gold:#d4b064;--glow:#4a3e1a;--mint:#1f5a50;--stagebg:#12352f;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body);overflow-x:hidden}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.06;text-wrap:balance;margin:0}
+.eyebrow{font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0}
+.btn{display:inline-flex;align-items:center;height:50px;padding:0 24px;border-radius:99px;background:#1f6b5a;color:#fff;text-decoration:none;font-weight:600;box-shadow:0 10px 26px rgba(31,107,90,.28);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);box-shadow:none}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 80%,transparent);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:22px;height:64px}
+.brand{display:flex;align-items:center;gap:8px;font-family:var(--display);font-size:1.35rem;font-weight:600;text-decoration:none;color:inherit}
+.brand img{width:40px}
+nav .links{margin-left:auto;display:flex;gap:22px;font-size:.92rem}
+nav .links a{color:var(--muted);text-decoration:none}
+nav .btn{height:40px;padding:0 18px;font-size:.9rem}
+@media (max-width:760px){nav .links{display:none}nav .btn{margin-left:auto}}
+
+.hero{position:relative;padding-block:48px 90px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(40% 55% at 22% 40%,color-mix(in srgb,var(--mint) 60%,transparent),transparent 70%),radial-gradient(32% 45% at 74% 45%,color-mix(in srgb,var(--glow) 85%,transparent),transparent 70%)}
+.hero .wrap{display:grid;grid-template-columns:1fr 460px;gap:40px;align-items:center}
+.hero h1{font-size:clamp(2.8rem,6.2vw,4.9rem);letter-spacing:-.02em;margin:.25em 0 .3em}
+.hero h1 em{color:var(--accent)}
+.lede{font-size:1.16rem;color:var(--muted);max-width:32ch;margin:0 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.trust{margin-top:30px;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.86rem;color:var(--muted)}
+.trust span::before{content:"✦ ";color:var(--gold)}
+.herostage{position:relative;height:670px;display:grid;place-items:center;perspective:1400px}
+.herostage .phone{transform:rotateY(-14deg) rotateX(4deg) rotateZ(1deg);animation:bob 7s ease-in-out infinite}
+@keyframes bob{50%{transform:rotateY(-10deg) rotateX(2deg) translateY(-10px)}}
+.halo{position:absolute;width:420px;height:420px;max-width:100%;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--glow) 90%,transparent),transparent 65%);filter:blur(10px)}
+.mascot{position:absolute;width:140px;top:-6px;left:10px;z-index:6;animation:float 5s ease-in-out infinite;filter:drop-shadow(0 16px 26px rgba(184,146,62,.4))}
+@keyframes float{50%{transform:translateY(-12px) rotate(-3deg)}}
+.toast{position:absolute;z-index:5;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:16px;background:rgba(255,255,255,.94);color:#102924;box-shadow:0 18px 40px rgba(16,41,36,.18);font-size:.84rem;white-space:nowrap;opacity:0;transform:translateY(12px) scale(.96);transition:opacity .5s,transform .5s cubic-bezier(.2,.8,.2,1)}
+.toast.show{opacity:1;transform:none}
+.toast .av{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#2f8f78;color:#fff;font-weight:600;font-size:.75rem}
+.toast b{color:#9a7a30}
+.t1{left:-30px;top:170px}.t2{right:-20px;top:340px}.t3{left:-10px;bottom:120px}
+@media (max-width:920px){.hero .wrap{grid-template-columns:1fr}.mascot{left:4%;width:110px}.t1{left:0}.t2{right:0}.t3{left:2%}}
+
+.phone{position:relative;width:310px;max-width:100%;border-radius:50px;padding:11px;background:linear-gradient(145deg,#2a3b38,#0b1614);box-shadow:0 50px 100px rgba(12,31,28,.38),inset 0 0 0 1.5px rgba(255,255,255,.18),inset 0 0 0 4px #050b0a}
+.phone::before{content:"";position:absolute;right:-3px;top:150px;width:3px;height:70px;border-radius:0 3px 3px 0;background:#1d2b28}
+.phone::after{content:"";position:absolute;left:-3px;top:120px;width:3px;height:46px;border-radius:3px 0 0 3px;background:#1d2b28;box-shadow:0 60px 0 #1d2b28}
+.screen{position:relative;height:640px;border-radius:40px;overflow:hidden;color:#102924;font-family:var(--body);
+  background:radial-gradient(420px 260px at 10% -10%,#9fd3c5,transparent 60%),radial-gradient(300px 220px at 100% 0%,#c9dfd8,transparent 55%),linear-gradient(165deg,#edf5f2,#d7ebe4 45%,#c5ddd5)}
+.screen::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.22),transparent 35%)}
+.sbar{position:absolute;top:0;left:0;right:0;height:44px;display:flex;justify-content:space-between;align-items:center;padding:4px 26px 0;font-size:.74rem;font-weight:600;z-index:3}
+.island{position:absolute;top:10px;left:50%;width:92px;height:26px;margin-left:-46px;border-radius:20px;background:#050b0a;z-index:4}
+.sbar .ic i{display:block;width:18px;height:9px;border-radius:2.5px;border:1.5px solid #102924;position:relative}
+.sbar .ic i::after{content:"";position:absolute;inset:1px;right:3px;background:#102924;border-radius:1px}
+.homebar{position:absolute;bottom:8px;left:50%;width:110px;height:4px;margin-left:-55px;border-radius:4px;background:#102924;opacity:.8;z-index:3}
+.view{position:absolute;inset:0;padding:52px 16px 20px;overflow:hidden;transition:opacity .45s ease,transform .45s ease}
+.view.off{opacity:0;transform:translateY(10px);pointer-events:none}
+.glass{background:rgba(255,255,255,.78);border:1px solid rgba(16,41,36,.08);border-radius:22px;box-shadow:0 14px 34px rgba(16,41,36,.08)}
+.a-top{display:flex;justify-content:space-between;align-items:center;font-size:.72rem;color:#4d6b64}
+.chip{font-weight:600;letter-spacing:.18em;font-size:.72rem;padding:5px 10px;border-radius:99px;background:rgba(255,255,255,.8);border:1px solid rgba(16,41,36,.1);color:#102924;transition:background .3s}
+.chip.copied{background:#2f8f78;color:#fff;letter-spacing:.04em}
+.a-title{font-family:var(--display);font-size:1.5rem;font-weight:600;margin:10px 0 2px;line-height:1.1}
+.a-sub{font-size:.7rem;color:#4d6b64}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:3px;padding:3px;border-radius:12px;background:rgba(16,41,36,.06);font-size:.74rem;font-weight:600;text-align:center}
+.seg span,.seg button{padding:6px;border-radius:9px;color:#4d6b64;border:0;background:none;font:inherit;cursor:pointer;transition:background .3s,color .3s}
+.seg .on{background:#2f8f78;color:#fff}
+.seg.light .on{background:#fff;color:#102924;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.countcard{padding:14px;margin-top:12px;text-align:center}
+.lbl{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:#4d6b64;margin:12px 0 0}
+.big{font-family:var(--display);font-size:3.2rem;font-weight:600;line-height:1.05;font-variant-numeric:tabular-nums}
+.bump{animation:bump .22s ease}
+@keyframes bump{40%{transform:scale(1.07)}}
+.bar{height:7px;border-radius:9px;background:rgba(16,41,36,.08);overflow:hidden;margin-top:8px}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#2f8f78,#b8923e);border-radius:9px;transition:width .3s ease}
+.prog{font-size:.66rem;color:#4d6b64;margin-top:6px;font-variant-numeric:tabular-nums}
+.btns{display:grid;grid-template-columns:1fr 1.6fr;gap:8px;margin-top:12px}
+.btns button,.btns span{height:56px;border-radius:18px;border:0;font:300 2rem var(--body);cursor:pointer;transition:transform .12s;display:grid;place-items:center}
+.btns button:active,.press{transform:scale(.9)}
+.btns button:disabled{opacity:.45;cursor:default}
+.minus{background:rgba(16,41,36,.06);color:#102924}
+.plus{background:#2f8f78;color:#fff;box-shadow:0 10px 24px rgba(47,143,120,.35)}
+.dcard{padding:10px 14px;margin-top:10px}
+.dcard .h{display:flex;justify-content:space-between;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:#4d6b64}
+.dcard .ar{font-family:var(--arabic);font-size:1.4rem;text-align:center;direction:rtl;line-height:1.7;color:#1f6b5a}
+.dcard .tr{text-align:center;font-family:var(--display);font-style:italic;font-size:.8rem}
+.fam{padding:10px 14px;margin-top:10px}
+.fam h4{margin:0 0 6px;font-family:var(--display);font-size:.88rem}
+.fam ul{list-style:none;margin:0;padding:0}
+.fam li{display:flex;justify-content:space-between;font-size:.76rem;padding:4px 0;border-top:1px solid rgba(16,41,36,.06);font-variant-numeric:tabular-nums;transition:color .3s}
+.fam li:first-child{border:0}
+.fam li.me span:first-child::after{content:" · you";color:#4d6b64}
+.fam li.hit{color:#2f8f78;font-weight:600}
+.field{margin-top:9px}
+.field>span{display:block;font-size:.66rem;color:#4d6b64;margin-bottom:4px}
+.inp{height:36px;border-radius:12px;border:1px solid rgba(16,41,36,.1);background:rgba(255,255,255,.85);display:flex;align-items:center;padding:0 11px;font-size:.82rem;justify-content:space-between;color:#102924}
+.prev{margin-top:9px;padding:9px;border-radius:14px;background:rgba(47,143,120,.08);text-align:center}
+.prev .ar{font-family:var(--arabic);font-size:1.3rem;color:#1f6b5a;line-height:1.6}
+.prev .tr{font-family:var(--display);font-style:italic;font-size:.78rem}
+.prev .m{font-size:.66rem;color:#4d6b64}
+.cta-app{margin-top:12px;height:44px;border-radius:14px;background:#2f8f78;color:#fff;display:grid;place-items:center;font-weight:600;font-size:.86rem;box-shadow:0 10px 24px rgba(47,143,120,.3)}
+.homehead{text-align:center;margin-bottom:12px}
+.homehead p{margin:0;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:#1f6b5a;font-weight:600}
+.homehead div{font-family:var(--display);font-size:1.7rem;font-weight:600}
+.codebig{text-align:center;font-weight:600;letter-spacing:.3em;font-size:1.3rem;padding:10px 0 10px .3em;border:1.5px dashed #b8923e;border-radius:14px}
+
+section.block{padding-block:96px}
+.head{max-width:620px;margin-bottom:44px}
+.head.c{margin-inline:auto;text-align:center}
+.head h2{font-size:clamp(2rem,4.4vw,3rem);margin:.3em 0 .35em}
+.head p{color:var(--muted);margin:0}
+.walk{display:grid;grid-template-columns:1fr 340px;gap:64px;align-items:center}
+.steps{display:grid;gap:10px}
+.step{all:unset;cursor:pointer;display:grid;grid-template-columns:44px 1fr;gap:4px 14px;padding:18px 20px;border-radius:20px;border:1px solid transparent;transition:background .25s,border-color .25s}
+.step .n{grid-row:span 3;font-family:var(--display);font-size:1.7rem;color:var(--muted);line-height:1.1;transition:color .25s}
+.step h3{font-size:1.2rem}
+.step p{margin:0;color:var(--muted);font-size:.95rem;max-width:44ch}
+.step.on{background:var(--card);border-color:var(--line)}
+.step.on .n{color:var(--gold)}
+.timer{height:2px;background:var(--line);border-radius:2px;overflow:hidden;margin-top:8px;visibility:hidden}
+.step.on .timer{visibility:visible}
+.timer i{display:block;height:100%;width:0;background:var(--gold)}
+@media (max-width:880px){.walk{grid-template-columns:1fr}.walk .phone{margin:0 auto;order:-1}}
+
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.f{border-radius:26px;background:var(--card);border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.vig{position:relative;height:210px;background:var(--stagebg);display:grid;place-items:center;overflow:hidden;color:#102924}
+.f .txt{padding:20px 22px 24px}
+.f h3{font-size:1.18rem;margin-bottom:.35em}
+.f p{margin:0;color:var(--muted);font-size:.94rem}
+@media (max-width:900px){.feats{grid-template-columns:1fr 1fr}}
+@media (max-width:580px){.feats{grid-template-columns:1fr}}
+.mini{width:70px;height:128px;border-radius:16px;background:#0b1614;padding:4px;box-shadow:0 12px 24px rgba(12,31,28,.25)}
+.mini>div{height:100%;border-radius:12px;background:linear-gradient(165deg,#edf5f2,#c5ddd5);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.mini b{font-family:var(--display);font-size:1.05rem;font-variant-numeric:tabular-nums}
+.mini small{font-size:.5rem;color:#4d6b64;letter-spacing:.1em;text-transform:uppercase}
+.mini .pl{width:34px;height:20px;border-radius:7px;background:#2f8f78;color:#fff;font-size:.8rem;display:grid;place-items:center;transition:transform .12s}
+.trio{display:flex;gap:16px;align-items:center;position:relative}
+.trio .mini:nth-child(3){transform:translateY(-10px)}
+.wave{position:absolute;inset:0;pointer-events:none}
+.wave i{position:absolute;left:50%;top:50%;width:20px;height:20px;margin:-10px;border-radius:50%;border:2px solid #b8923e;opacity:0}
+.wave i.go{animation:wave 1s ease-out}
+@keyframes wave{from{opacity:.8}to{opacity:0;transform:scale(10)}}
+.vcard{width:200px;padding:14px;border-radius:18px;background:rgba(255,255,255,.9);box-shadow:0 12px 26px rgba(16,41,36,.12);text-align:center;position:relative}
+.vcard .big{font-size:2.3rem}
+.vcard .seg{font-size:.66rem}
+.gring{position:relative;width:140px;height:140px;margin-top:-16px}
+.gring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.gring .c{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.gring b{font-family:var(--display);font-size:1.6rem;font-variant-numeric:tabular-nums;line-height:1}
+.gring small{font-size:.62rem;color:#4d6b64}
+.badge{position:absolute;bottom:14px;padding:6px 12px;border-radius:99px;background:#b8923e;color:#fff;font-size:.74rem;font-weight:600;opacity:0;transform:translateY(8px);transition:all .45s}
+.badge.show{opacity:1;transform:none}
+.days{position:absolute;top:16px;left:16px;font-size:.7rem;font-weight:600;padding:5px 10px;border-radius:99px;background:#102924;color:#fff}
+.saved{position:absolute;bottom:14px;font-size:.74rem;color:#1f6b5a;font-weight:600;opacity:0;transition:opacity .4s}
+.saved.show{opacity:1}
+.ghostphone{transition:opacity .5s,transform .5s}
+.ghostphone.away{opacity:.15;transform:scale(.92)}
+.undo .big{display:inline-block}
+.undo .btns{width:170px;margin-inline:auto}
+.undo .btns span{height:44px;font-size:1.6rem;border-radius:14px}
+.float1{position:absolute;right:30px;top:34px;font-weight:600;color:#9a7a30;font-size:.95rem;opacity:0}
+.float1.go{animation:up .9s ease-out}
+@keyframes up{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-30px)}}
+.join .inp{width:200px;margin-bottom:8px;background:#fff}
+.join .ok{margin-top:6px;font-size:.78rem;color:#fff;background:#2f8f78;border-radius:99px;padding:5px 12px;opacity:0;transform:scale(.9);transition:all .35s}
+.join .ok.show{opacity:1;transform:none}
+
+.library{background:var(--bg2);border-block:1px solid var(--line);overflow:hidden}
+.spot{text-align:center;margin:0 auto 54px;max-width:760px;min-height:230px}
+.spot .ar{font-family:var(--arabic);font-size:clamp(2.6rem,8vw,5.2rem);line-height:1.5;color:var(--accent);direction:rtl;transition:opacity .5s,filter .5s,transform .5s}
+.spot .tr{font-family:var(--display);font-style:italic;font-size:1.4rem;transition:opacity .5s .1s}
+.spot .m{color:var(--muted);transition:opacity .5s .15s}
+.spot.fade .ar{opacity:0;filter:blur(8px);transform:scale(.97)}
+.spot.fade .tr,.spot.fade .m{opacity:0}
+.dots{display:flex;gap:6px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+.dots button{width:8px;height:8px;border-radius:50%;border:0;padding:0;background:var(--line);cursor:pointer;transition:background .3s,width .3s}
+.dots button.on{background:var(--gold);width:22px;border-radius:5px}
+.mq{-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.marquee{display:flex;gap:12px;width:max-content;animation:scroll 70s linear infinite}
+.marquee.rev{animation-direction:reverse;margin-top:12px}
+.mq:hover .marquee{animation-play-state:paused}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.pill{display:flex;align-items:center;gap:14px;padding:12px 20px;border-radius:99px;background:var(--card);border:1px solid var(--line);white-space:nowrap}
+.pill .a{font-family:var(--arabic);font-size:1.25rem;color:var(--accent)}
+.pill .t{font-size:.9rem;color:var(--muted)}
+.pill.custom{border-style:dashed}
+
+.closing{text-align:center;padding-block:100px 110px;position:relative;overflow:hidden}
+.closing::before{content:"";position:absolute;left:50%;top:40px;width:520px;height:520px;margin-left:-260px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--glow) 80%,transparent),transparent 65%);z-index:-1}
+.closing img{width:150px;animation:float 5s ease-in-out infinite;filter:drop-shadow(0 14px 26px rgba(184,146,62,.35))}
+.closing h2{font-size:clamp(2.2rem,5vw,3.6rem);margin:.3em auto;max-width:16ch}
+.closing p{color:var(--muted);margin:0 auto 28px;max-width:40ch}
+footer{border-top:1px solid var(--line);padding-block:24px;font-size:.85rem;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+body,html{margin:0}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top"><img src="/assets/logo.webp" alt="">Farishta</a>
+  <div class="links"><a href="#how">How it works</a><a href="#features">Features</a><a href="#dhikr">Dhikr</a></div>
+  <a class="btn" href="https://dhikr.farishta.si">Start a room</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div>
+    <p class="eyebrow">Shared dhikr for families</p>
+    <h1>Remember Allah, <em>together.</em></h1>
+    <p class="lede">Create a room, share the code, and tap +. Every tap from every phone adds to one family count.</p>
+    <div class="cta"><a class="btn" href="https://dhikr.farishta.si">Start a room</a><a class="btn ghost" href="#how">See how it works</a></div>
+    <div class="trust"><span>No accounts</span><span>Nothing to download</span><span>Works on any phone</span></div>
+  </div>
+  <div class="herostage">
+    <div class="halo"></div>
+    <img class="mascot" src="/assets/logo.webp" alt="Farishta logo, a glowing green angel with gold wings">
+    <div class="toast t1" id="ta"><span class="av">A</span><span>Ammi added <b>+33</b></span></div>
+    <div class="toast t2" id="tb"><span class="av" style="background:#b8923e">✓</span><span>Abbu joined <b>NOOR42</b></span></div>
+    <div class="toast t3" id="tc"><span class="av">S</span><span>Sara added <b>+100</b></span></div>
+    <div class="phone"><div class="screen"><div class="island"></div><div class="sbar"><span>9:41</span><span class="ic"><i></i></span></div>
+      <div class="view" aria-label="Interactive room demo">
+        <div class="a-top"><span>← Rooms</span><span class="chip">NOOR42</span></div>
+        <div class="a-title">Thursday night dhikr</div>
+        <div class="a-sub">Goal 1,000 · share code NOOR42</div>
+        <div class="glass countcard">
+          <div class="seg" id="hseg"><button class="on" data-m="group">Group</button><button data-m="personal">Personal</button></div>
+          <p class="lbl" id="hlbl">Count</p>
+          <div class="big" id="hbig">0</div>
+          <div class="bar"><i id="hbar"></i></div>
+          <div class="prog" id="hprog">0 of 1,000 · 0%</div>
+          <div class="btns"><button class="minus" id="hminus" aria-label="Decrease count">−</button><button class="plus" id="hplus" aria-label="Increase count">+</button></div>
+        </div>
+        <div class="glass dcard"><div class="h"><span>Dhikr · Arabic &amp; transliteration</span><span>⌃</span></div><div class="ar">سُبْحَانَ اللَّهِ</div><div class="tr">Subḥān Allāh</div></div>
+        <div class="glass fam"><h4>Family in this room</h4><ul id="hfam"></ul></div>
+      </div><div class="homebar"></div></div></div>
+  </div>
+</div></header>
+
+<section class="block" id="how"><div class="wrap">
+  <div class="head"><p class="eyebrow">How it works</p><h2>From the family group chat to one shared count.</h2><p>These are the app's own screens. Tap a step to see it.</p></div>
+  <div class="walk">
+    <div class="steps" id="steps">
+      <button class="step on"><span class="n">1</span><h3>Create a room</h3><p>Enter your name, name the room and set a goal. It starts at 12,000.</p><span class="timer"><i></i></span></button>
+      <button class="step"><span class="n">2</span><h3>Choose the dhikr</h3><p>Pick a standard dhikr or write your own. The Arabic, transliteration and meaning show right away.</p><span class="timer"><i></i></span></button>
+      <button class="step"><span class="n">3</span><h3>Share the code</h3><p>Tap the code to copy it and send it to the family. They join with their name and the code.</p><span class="timer"><i></i></span></button>
+      <button class="step"><span class="n">4</span><h3>Count together</h3><p>Everyone taps +. The total and progress update on every phone, and the room shows what each person has counted.</p><span class="timer"><i></i></span></button>
+    </div>
+    <div class="phone"><div class="screen" id="walkscreen"><div class="island"></div><div class="sbar"><span>9:41</span><span class="ic"><i></i></span></div><div class="homebar"></div>
+      <div class="view">
+        <div class="homehead"><p>Shared counting</p><div>Family Dhikr</div></div>
+        <div class="glass" style="padding:12px">
+          <div class="seg light"><span class="on">Create room</span><span>Join room</span></div>
+          <div class="field"><span>Your name</span><div class="inp" data-type="Saif"></div></div>
+          <div class="field"><span>Room name</span><div class="inp" data-type="Thursday night dhikr"></div></div>
+          <div class="field"><span>Goal (total count)</span><div class="inp" data-type="12,000"></div></div>
+          <div class="cta-app">Create &amp; open room</div>
+        </div>
+      </div>
+      <div class="view off">
+        <div class="homehead"><p>Shared counting</p><div>Family Dhikr</div></div>
+        <div class="glass" style="padding:12px">
+          <div class="field" style="margin-top:0"><span>Dhikr</span><div class="seg light"><span class="on">Standard</span><span>Custom</span></div></div>
+          <div class="field"><div class="inp"><span id="dsel">Subhan Allah</span><span>⌄</span></div></div>
+          <div class="prev"><div class="ar" id="dar">سُبْحَانَ اللَّهِ</div><div class="tr" id="dtr">Subḥān Allāh</div><div class="m" id="dm">Glory be to Allah</div></div>
+          <div class="cta-app">Create &amp; open room</div>
+        </div>
+      </div>
+      <div class="view off">
+        <div class="a-top"><span>← Rooms</span><span class="chip" id="cchip">NOOR42</span></div>
+        <div class="a-title">Thursday night dhikr</div>
+        <div class="a-sub">Goal 12,000 · share code NOOR42</div>
+        <div class="glass" style="padding:12px;margin-top:14px">
+          <div class="seg light"><span>Create room</span><span class="on">Join room</span></div>
+          <div class="field"><span>Your name</span><div class="inp">Ammi</div></div>
+          <div class="field"><span>Room code</span><div class="codebig">NOOR42</div></div>
+          <div class="cta-app">Join room</div>
+        </div>
+        <p style="text-align:center;font-size:.68rem;color:#4d6b64;margin-top:10px">What Ammi sees after you send the code</p>
+      </div>
+      <div class="view off">
+        <div class="a-top"><span>← Rooms</span><span class="chip">NOOR42</span></div>
+        <div class="a-title">Thursday night dhikr</div>
+        <div class="a-sub">Goal 12,000 · share code NOOR42</div>
+        <div class="glass countcard">
+          <div class="seg"><span class="on">Group</span><span>Personal</span></div>
+          <p class="lbl">Count</p>
+          <div class="big" id="wbig">8,412</div>
+          <div class="bar"><i id="wbar" style="width:70%"></i></div>
+          <div class="prog" id="wprog">8,412 of 12,000 · 70%</div>
+          <div class="btns"><span class="minus">−</span><span class="plus">+</span></div>
+        </div>
+        <div class="glass fam"><h4>Family in this room</h4><ul id="wfam"></ul></div>
+      </div>
+    </div></div>
+  </div>
+</div></section>
+
+<section class="block" id="features" style="padding-top:24px"><div class="wrap">
+  <div class="head c"><p class="eyebrow">Features</p><h2>Simple enough for Nani. Built to keep everyone in sync.</h2></div>
+  <div class="feats">
+    <div class="f"><div class="vig"><div class="trio" id="v-sync">
+        <div class="wave"><i></i></div>
+        <div class="mini"><div><small>Count</small><b>8,412</b><span class="pl">+</span></div></div>
+        <div class="mini"><div><small>Count</small><b>8,412</b><span class="pl">+</span></div></div>
+        <div class="mini"><div><small>Count</small><b>8,412</b><span class="pl">+</span></div></div>
+      </div></div>
+      <div class="txt"><h3>Live on every phone</h3><p>One tap anywhere updates the count on every phone in the room.</p></div></div>
+    <div class="f"><div class="vig"><div class="vcard" id="v-mode">
+        <div class="seg"><span class="on">Group</span><span>Personal</span></div>
+        <p class="lbl">Count</p><div class="big">8,412</div>
+      </div></div>
+      <div class="txt"><h3>Group and personal counts</h3><p>Switch between the family total and your own taps. The room lists what each person has counted.</p></div></div>
+    <div class="f"><div class="vig" id="v-goal">
+        <div class="gring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" fill="none" stroke="rgba(16,41,36,.08)" stroke-width="9"/><circle id="gfill" cx="60" cy="60" r="50" fill="none" stroke="#b8923e" stroke-width="9" stroke-linecap="round" stroke-dasharray="314.2" stroke-dashoffset="94"/></svg>
+          <div class="c"><b id="gnum">8,412</b><small>of 12,000</small></div></div>
+        <div class="badge" id="gbadge">Goal reached, mashaAllah</div>
+      </div>
+      <div class="txt"><h3>A goal to finish together</h3><p>Set any target. Progress fills as the family counts, and the room marks the moment you reach it.</p></div></div>
+    <div class="f"><div class="vig" id="v-keep">
+        <span class="days" id="kday">Thursday</span>
+        <div class="vcard ghostphone" id="kcard"><p class="lbl" style="margin:0">Thursday night dhikr</p><div class="big">8,412</div><div class="bar"><i style="width:70%"></i></div></div>
+        <div class="saved" id="ksaved">Still 8,412 on Sunday</div>
+      </div>
+      <div class="txt"><h3>Rooms keep their count</h3><p>Close the app and come back days later. The room and its total are still there.</p></div></div>
+    <div class="f"><div class="vig"><div class="vcard undo" id="v-undo">
+        <p class="lbl" style="margin:0">Your count</p><div class="big">101</div><span class="float1"></span>
+        <div class="btns"><span class="minus">−</span><span class="plus">+</span></div>
+      </div></div>
+      <div class="txt"><h3>Undo a tap</h3><p>Tapped one too many? The − button takes it back so the count stays accurate.</p></div></div>
+    <div class="f"><div class="vig"><div class="join" id="v-join" style="display:flex;flex-direction:column;align-items:center">
+        <div class="inp" data-t="Nani">Nani</div><div class="inp" data-t="NOOR42" style="letter-spacing:.2em">NOOR42</div>
+        <span class="ok show">Joined Thursday night dhikr</span>
+      </div></div>
+      <div class="txt"><h3>No sign-up</h3><p>Just a name and a code, so grandparents and kids can join in seconds.</p></div></div>
+  </div>
+</div></section>
+
+<section class="block library" id="dhikr">
+  <div class="wrap">
+    <div class="head c"><p class="eyebrow">Built-in dhikr</p><h2>Ready to count.</h2><p>Every dhikr shows its Arabic, transliteration and meaning in the room, so everyone knows what they are saying.</p></div>
+    <div class="spot" id="spot"><div class="ar"></div><div class="tr"></div><div class="m"></div><div class="dots" id="dots"></div></div>
+  </div>
+  <div class="mq"><div class="marquee" id="mq1"></div><div class="marquee rev" id="mq2"></div></div>
+</section>
+
+<section class="closing"><div class="wrap">
+  <img src="/assets/logo.webp" alt="">
+  <h2>Gather the family. Count together.</h2>
+  <p>Start a room tonight and send the code to everyone you love.</p>
+  <a class="btn" href="https://dhikr.farishta.si">Start a room</a>
+</div></section>
+
+<footer><div class="wrap"><span>Farishta · farishta.si</span><span>Remember Allah together.</span></div></footer>
+
+<script>
+(()=>{
+  const $=id=>document.getElementById(id), fmt=n=>n.toLocaleString();
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const pct=(n,g)=>{const p=Math.min(100,n/g*100);return p>=100?'100%':p<10?p.toFixed(1)+'%':Math.round(p)+'%'};
+  const bump=el=>{el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump')};
+  const press=el=>{el.classList.add('press'); setTimeout(()=>el.classList.remove('press'),140)};
+  const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+
+  const D=[["سُبْحَانَ اللَّهِ","Subḥān Allāh","Glory be to Allah","Subhan Allah"],["الْحَمْدُ لِلَّهِ","Alḥamdulillāh","All praise is due to Allah","Alhamdulillah"],["اللَّهُ أَكْبَرُ","Allāhu Akbar","Allah is the Greatest","Allahu Akbar"],["لَا إِلٰهَ إِلَّا اللَّهُ","Lā ilāha illallāh","There is no god but Allah","La ilaha illallah"],["أَسْتَغْفِرُ اللَّهَ","Astaghfirullāh","I seek forgiveness from Allah","Astaghfirullah"],["سُبْحَانَ اللَّهِ وَبِحَمْدِهِ","Subḥānallāhi wa biḥamdih","Glory and praise be to Allah","Subhanallahi wa bihamdihi"],["سُبْحَانَ اللَّهِ الْعَظِيمِ","Subḥānallāhil ʿAẓīm","Glory be to Allah, the Magnificent","Subhanallahil Azeem"],["لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ","Lā ḥawla wa lā quwwata illā billāh","There is no power except with Allah","La hawla wa la quwwata"],["اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ","Allāhumma ṣalli ʿalā Muḥammad","O Allah, send blessings upon Muhammad","Salawat on the Prophet ﷺ"],["حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ","Ḥasbunallāhu wa niʿmal wakīl","Allah is sufficient for us, and He is the best Disposer of affairs","Hasbunallahu wa ni'mal wakeel"],["يَا سَلَامُ","Yā Salāmu","O Source of Peace","Ya Salamu"]];
+
+  /* Hero room */
+  const H={goal:1000,mode:'group',fam:[{n:'Saif',t:0,me:true},{n:'Ammi',t:212},{n:'Abbu',t:140},{n:'Sara',t:96}]};
+  const total=()=>H.fam.reduce((a,m)=>a+m.t,0);
+  function drawHero(hit){
+    const me=H.fam[0], g=total();
+    $('hlbl').textContent=H.mode==='group'?'Count':'Your count';
+    $('hbig').textContent=fmt(H.mode==='group'?g:me.t);
+    if(hit!==undefined && (H.mode==='group'||hit===0)) bump($('hbig'));
+    $('hbar').style.width=Math.min(100,g/H.goal*100)+'%';
+    $('hprog').textContent=`${fmt(g)} of ${fmt(H.goal)} · ${pct(g,H.goal)}${g>=H.goal?' · Goal reached, mashaAllah':''}`;
+    $('hminus').disabled = H.mode==='personal'?me.t<=0:g<=0;
+    $('hfam').innerHTML=H.fam.map((m,i)=>`<li class="${m.me?'me':''} ${i===hit?'hit':''}"><span>${m.n}</span><span>${fmt(m.t)}</span></li>`).join('');
+  }
+  $('hplus').onclick=()=>{H.fam[0].t++; drawHero(0)};
+  $('hminus').onclick=()=>{if(H.fam[0].t>0){H.fam[0].t--; drawHero(0)}};
+  $('hseg').onclick=e=>{const m=e.target.dataset.m; if(!m)return; H.mode=m; [...$('hseg').children].forEach(c=>c.classList.toggle('on',c.dataset.m===m)); drawHero()};
+  drawHero();
+  const events=[['ta',1,33],['tb',null,0],['tc',3,100]];
+  (async()=>{ if(reduce){events.forEach(e=>$(e[0]).classList.add('show'));return}
+    let ei=0; await sleep(900);
+    while(true){ const [id,who,amt]=events[ei++%3];
+      if(total()+amt>H.goal){ H.fam.forEach(m=>{if(!m.me)m.t=Math.round(m.t/4)}); drawHero(); }
+      $(id).classList.add('show');
+      if(who!==null){ await sleep(350); H.fam[who].t+=amt; drawHero(who); }
+      await sleep(2400); $(id).classList.remove('show'); await sleep(700); } })();
+
+  /* Walkthrough */
+  const views=[...$('walkscreen').querySelectorAll('.view')], steps=[...$('steps').children], DUR=5500;
+  let cur=0, t0=performance.now(), timers=[], lastBump=0;
+  const W={fam:[['Saif',2410],['Ammi',3120],['Abbu',1765],['Sara',1117]],cur:[]};
+  const later=(f,ms)=>timers.push(setTimeout(f,ms));
+  function play(i){
+    timers.forEach(clearTimeout); timers=[]; cur=i; t0=performance.now();
+    views.forEach((v,k)=>v.classList.toggle('off',k!==i));
+    steps.forEach((s,k)=>{s.classList.toggle('on',k===i); s.querySelector('.timer i').style.width='0'});
+    if(i===0) views[0].querySelectorAll('[data-type]').forEach((el,k)=>{const txt=el.dataset.type; el.textContent=reduce?txt:''; if(!reduce)[...txt].forEach((_,j)=>later(()=>{el.textContent=txt.slice(0,j+1)},300+k*1300+j*55))});
+    if(i===1) [2,1,0].forEach((di,k)=>later(()=>{const d=D[di]; $('dsel').textContent=d[3]; $('dar').textContent=d[0]; $('dtr').textContent=d[1]; $('dm').textContent=d[2]},400+k*1400));
+    if(i===2){ const c=$('cchip'); c.textContent='NOOR42'; c.classList.remove('copied'); later(()=>{c.textContent='Copied';c.classList.add('copied')},700); later(()=>{c.textContent='NOOR42';c.classList.remove('copied')},2300); }
+    if(i===3){ W.cur=W.fam.map(f=>f[1]); drawW(); }
+  }
+  function drawW(hit){
+    const g=W.cur.reduce((a,b)=>a+b,0);
+    $('wbig').textContent=fmt(g); $('wbar').style.width=(g/120)+'%'; $('wprog').textContent=`${fmt(g)} of 12,000 · ${pct(g,12000)}`;
+    $('wfam').innerHTML=W.fam.map((f,k)=>`<li class="${k===0?'me':''} ${k===hit?'hit':''}"><span>${f[0]}</span><span>${fmt(W.cur[k])}</span></li>`).join('');
+  }
+  steps.forEach((s,k)=>s.onclick=()=>play(k));
+  function tick(now){
+    const k=(now-t0)/DUR;
+    steps[cur].querySelector('.timer i').style.width=Math.min(100,k*100)+'%';
+    if(cur===3 && !reduce && now-lastBump>450){ lastBump=now; const i=Math.random()*4|0; W.cur[i]++; drawW(i); bump($('wbig')) }
+    if(k>=1 && !reduce) play((cur+1)%4);
+    requestAnimationFrame(tick);
+  }
+  play(0); requestAnimationFrame(tick);
+
+  /* Feature vignettes: each loops only while on screen */
+  const vis=new Map();
+  const io=new IntersectionObserver(es=>es.forEach(e=>vis.set(e.target,e.isIntersecting)),{threshold:.2});
+  const loop=(el,fn)=>{io.observe(el); if(reduce) return; (async()=>{while(true){ if(vis.get(el)) await fn(); else await sleep(400);} })()};
+
+  { const el=$('v-sync'), nums=[...el.querySelectorAll('b')], pls=[...el.querySelectorAll('.pl')], w=el.querySelector('.wave i'); let n=8412;
+    loop(el,async()=>{ const i=Math.random()*3|0; press(pls[i]); w.style.left=(17+i*33)+'%'; w.classList.remove('go'); void w.offsetWidth; w.classList.add('go');
+      await sleep(260); n++; nums.forEach(b=>{b.textContent=fmt(n); bump(b)}); await sleep(1100); }); }
+  { const el=$('v-mode'), seg=[...el.querySelectorAll('.seg span')], lbl=el.querySelector('.lbl'), big=el.querySelector('.big'); let g=true;
+    loop(el,async()=>{ await sleep(1800); g=!g; seg[0].classList.toggle('on',g); seg[1].classList.toggle('on',!g); lbl.textContent=g?'Count':'Your count';
+      const from=g?2410:8412,to=g?8412:2410; for(let k=1;k<=12;k++){ big.textContent=fmt(Math.round(from+(to-from)*k/12)); await sleep(28);} }); }
+  { const el=$('v-goal');
+    loop(el,async()=>{ $('gbadge').classList.remove('show');
+      for(let k=0;k<=60;k++){ const e=1-Math.pow(1-k/60,3); $('gfill').style.strokeDashoffset=314.2*(1-e); $('gnum').textContent=fmt(Math.round(12000*e)); await sleep(32);}
+      $('gbadge').classList.add('show'); await sleep(2400); }); }
+  { const el=$('v-keep'), card=$('kcard'), day=$('kday'), saved=$('ksaved');
+    loop(el,async()=>{ day.textContent='Thursday'; saved.classList.remove('show'); card.classList.remove('away'); await sleep(1500);
+      card.classList.add('away'); for(const d of ['Friday','Saturday','Sunday']){ await sleep(450); day.textContent=d; }
+      await sleep(350); card.classList.remove('away'); saved.classList.add('show'); await sleep(2400); }); }
+  { const el=$('v-undo'), big=el.querySelector('.big'), fl=el.querySelector('.float1'), [mi,pl]=el.querySelectorAll('.btns span'); let n=101;
+    const show=t=>{fl.textContent=t; fl.classList.remove('go'); void fl.offsetWidth; fl.classList.add('go')};
+    const set=(v,b,t)=>{press(b); n=v; big.textContent=n; bump(big); show(t)};
+    loop(el,async()=>{ await sleep(700); set(102,pl,'+1'); await sleep(500); set(103,pl,'+1'); await sleep(900); set(102,mi,'−1'); await sleep(1400); n=101; big.textContent=n; }); }
+  { const el=$('v-join'), ins=[...el.querySelectorAll('.inp')], ok=el.querySelector('.ok');
+    loop(el,async()=>{ ins.forEach(i=>i.textContent=''); ok.classList.remove('show'); await sleep(400);
+      for(const i of ins){ for(const ch of i.dataset.t){ i.textContent+=ch; await sleep(90);} await sleep(250); }
+      ok.classList.add('show'); await sleep(2200); }); }
+
+  /* Dhikr spotlight + marquee */
+  const spot=$('spot'), dots=$('dots'); let si=0, stimer;
+  dots.innerHTML=D.map(d=>`<button aria-label="${d[3]}"></button>`).join('');
+  const fill=i=>{const d=D[i]; spot.querySelector('.ar').textContent=d[0]; spot.querySelector('.tr').textContent=d[1]; spot.querySelector('.m').textContent=d[2]; [...dots.children].forEach((b,k)=>b.classList.toggle('on',k===i))};
+  function showSpot(i){ si=i; clearTimeout(stimer); spot.classList.add('fade'); setTimeout(()=>{fill(i); spot.classList.remove('fade')}, reduce?0:450); if(!reduce) stimer=setTimeout(()=>showSpot((si+1)%D.length),3800); }
+  [...dots.children].forEach((b,i)=>b.onclick=()=>showSpot(i));
+  fill(0); if(!reduce) stimer=setTimeout(()=>showSpot(1),3800);
+  const pill=d=>d?`<div class="pill"><span class="a">${d[0]}</span><span class="t">${d[3]}</span></div>`:`<div class="pill custom"><span class="t">＋ Your own dhikr</span></div>`;
+  [[D.slice(0,6)],[D.slice(6).concat([null])]].forEach(([arr],k)=>{ const h=arr.map(pill).join(''); $(k?'mq2':'mq1').innerHTML=h+h+h+h; });
+})();
+</script>
+
+</body>
+</html>
